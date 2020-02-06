@@ -1,3 +1,10 @@
+:root
+{
+	--background-color: black;
+	--highlight-color: green;
+	--text-color: white;
+}
+
 body
 {
 	padding:0;
