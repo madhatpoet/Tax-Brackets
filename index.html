@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="shortcut icon" href="http://nicoletabat.com/images/NT.ico" type="image/x-icon">
+		<title>Tax Bracket Simulator</title>
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<!--Begin jQuery-->
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+			<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+			<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+		<!--End jQuery-->
+		<link href="css/main.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<div id="header">
+			<h1>Income Tax Brackets</h1>
+			<div id="slider"></div>
+		</div>
+		<div id="container">
+			<div id="brackets">
+				<table>
+					<tr class="table-header">
+						<th>Min</th>
+						<th>Max</th>
+						<th>Rate</th>
+					</tr>
+					<tr class="rates">
+						<th id="min1"></th>
+						<th id="max1"></th>
+						<th id="rate1"><input id="" number="" ></th>
+					</tr>
+					<tr class="rates">
+						<th id="min2"></th>
+						<th id="max2"></th>
+						<th id="rate2"></th>
+					</tr>
+					<tr class="rates">
+						<th id="min3"></th>
+						<th id="max3"></th>
+						<th id="rate3"></th>
+					</tr>
+					<tr class="rates">
+						<th id="min4"></th>
+						<th id="max4"></th>
+						<th id="rate4"></th>
+					</tr>
+					<tr class="rates">
+						<th id="min5"></th>
+						<th id="max5"></th>
+						<th id="rate5"></th>
+					</tr>
+					<tr class="rates">
+						<th id="min6"></th>
+						<th id="max6"></th>
+						<th id="rate6"></th>
+					</tr>
+					<tr class="rates">
+						<th id="min7"></th>
+						<th id="max7"></th>
+						<th id="rate7"></th>
+					</tr>
+				</table>
+			</div>
+			<div id="tax-stuff">
+				<table>
+					<tr>
+						<th class="right">Taxable Income</th>
+						<th class="left"><input id="income" type="number"></th>
+					</tr>
+					<tr>
+						<th class="right">Tax</th>
+						<th class="left" id="tax"></th>
+					</tr>
+					<tr>
+						<th class="right">Effective Tax Rate</th>
+						<th class="left" id="actual-rate"></th>
+					</tr>
+				</table>
+				<p>
+					The default values for brackets represent the<br>values for 2019 as they currently are set for a<br>single filer. Feel free to move them around and<br>see what happens.
+				</p>
+			</div>
+		</div>
+		<script src="js/brackets.js"></script>
+	</body>
+</html>
