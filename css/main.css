@@ -95,3 +95,36 @@ th
 {
 	text-align:left;
 }
+
+#footer
+{
+	text-align: center;
+}
+
+.footer-button
+{
+	padding:10px;
+	border-radius:20px;
+	border-style: solid;
+	background-color: var(--background-color);
+	text-decoration: none;
+	min-width: 150px;
+	text-align: center;
+	display: inline-block;
+	/*Changes for hover*/
+	border-color: var(--highlight-color);
+	color: var(--highlight-color);
+}
+
+.footer-button:hover
+{
+	border-color: var(--text-color);
+	color: var(--text-color);
+	opacity:0.9;
+}
+
+.footer-spacer
+{
+	display: inline-block;
+	width:20px;
+}
