@@ -8,6 +8,7 @@ var rates = [10,12,22,24,32,35,37];
 
 //Initial Setup
 updateRatesTable();
+setUpRates();
 $("#income").val(starting_income).attr("min",min_income).attr("max",max_income);
 updateTax();
 
@@ -23,21 +24,31 @@ $( "#income" ).keypress(function(){
 	}
 });
 
-//Slider Code
-$("#slider").slider({
-	min: 0,
-	max: max_slider_value,
-	step: 1,
-	values: breaks,
-	slide: function(event, ui) {
-			for (var i = 0; i < ui.values.length; ++i) {
-				$("input.sliderValue[data-index=" + i + "]").val(ui.values[i]);
-			}
-			breaks = ui.values.slice(0);
-			breaks.sort(function(a, b){return a-b});
-			updateTax();
-		}
+
+$( ".rate-selector" ).focusout(function(){
+		updateRates();
+		updateTax();
 });
+
+
+$( ".rate-selector" ).keypress(function(){
+	var keycode = (event.keyCode ? event.keyCode : event.which);
+	if(keycode == '13')
+	{
+		updateRates();
+		updateTax();
+	}
+});
+
+function setUpRates()
+{
+	for(var i = 0; i < rates.length; i++)
+	{
+		var j = i + 1;
+		var rate = rates[i];
+		$("#rate" + j).html("" + "<input id='rate-selector" + j + "' class='rate-selector' type='number' min='0' max='100' value='" + rate + "'/>" + "%");
+	}
+}
 
 function updateRatesTable()
 {
@@ -45,7 +56,6 @@ function updateRatesTable()
 	{
 		var j = i + 1;
 		var min = breaks[i] + 1;
-		var rate = rates[i];
 		var max;
 		if(j<rates.length)
 		{
@@ -57,7 +67,16 @@ function updateRatesTable()
 			$("#max" + j).html("---------");
 		}
 		$("#min" + j).html("$" + min);
-		$("#rate" + j).html("" + rate + "%");
+	}
+}
+
+function updateRates()
+{
+	for(var i = 0; i < rates.length; i++)
+	{
+		 var j = i + 1;
+		 var rate = $("#rate-selector" + j).val();
+		 rates[i] = rate;
 	}
 }
 
@@ -143,3 +162,20 @@ function calculateTax(income)
 
 	return tax;
 }
+
+//Slider Code
+$("#slider").slider({
+	min: 0,
+	max: max_slider_value,
+	step: 1,
+	values: breaks,
+	slide: function(event, ui) {
+			for (var i = 0; i < ui.values.length; ++i) {
+				$("input.sliderValue[data-index=" + i + "]").val(ui.values[i]);
+			}
+			breaks = ui.values.slice(0);
+			breaks.sort(function(a, b){return a-b});
+			updateRatesTable()
+			updateTax();
+		}
+});

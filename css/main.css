@@ -32,7 +32,7 @@ h1
 
 #container
 {
-	width:600px;
+	width:603px;
 	margin: 20px auto;
 }
 
@@ -45,8 +45,27 @@ h1
 #tax-stuff
 {
 	position: relative;
-	top: -111px;
+	top: -190px;
 	left: 20px;
+}
+
+.rate-selector, .income
+{
+	background-color: var(--background-color);
+	color: var(--text-color);
+	padding: 4px;
+	font-size: 15px;
+	border-opacity:0.2;
+}
+
+.rate-selector
+{
+	width: 40px;
+}
+
+.income
+{
+	width: 100px;
 }
 
 table
